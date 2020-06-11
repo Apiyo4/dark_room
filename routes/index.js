@@ -12,8 +12,9 @@ router.post('/upload', (req,res)=>{
         if (err){
             console.log(err)
             res.render('index', {msg: err})
+        }else if(req.file === undefined){
+            res.render('index', {msg: 'Error: No file selected!!'})
         }else{
-            console.log(req.file);
             res.render('index', {file: 'images/' + req.file.filename})
         }
     })
