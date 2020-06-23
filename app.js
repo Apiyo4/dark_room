@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 let indexRouter = require('./routes/index');
+let imageRouter = require('./routes/image');
 
 // Connecting to the Database
 let mongodb_url = 'mongodb://localhost/';
@@ -31,8 +32,9 @@ app.set('view engine', 'ejs');
 // Set a static folder
 app.use(express.static('public'));
 
-// Define the index router
+// Routes
 app.use('/', indexRouter);
+app.use('/image', imageRouter);
 
 
 // Define the port number
