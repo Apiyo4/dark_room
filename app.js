@@ -13,7 +13,7 @@ let db = mongoose.connection;
 
 // Check Connection
 db.once('open', ()=>{
-    console.log('Database connected succefully')
+    console.log('Database connected successfully')
 })
 
 // Check for DB Errors
@@ -31,6 +31,9 @@ app.set('view engine', 'ejs');
 
 // Set a static folder
 app.use(express.static('public'));
+
+// body parser middleware
+app.use(express.json())
 
 // Routes
 app.use('/', indexRouter);
